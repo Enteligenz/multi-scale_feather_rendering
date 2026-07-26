@@ -1,0 +1,102 @@
+<scene id="scene">
+  <camera type="perspective">
+    <integer name="width" value="1920"/>
+    <integer name="height" value="1080"/>
+    <float name="fov" value="39.598"/>
+    <string name="fovAxis" value="x"/>
+    <transform>
+      <matrix value="0.99386,0.0064688,-0.11041,1.5009,  0.064938,-0.84223,0.53519,-1.3016,  -0.089532,-0.53907,-0.83749,1.5295,  0,0,0,1"/>
+    </transform>
+    <!-- <transform>
+      <matrix value="0.99386,-0.067555,-0.087574,1.5396,  0.064938,-0.28453,0.95647,-1.9075,  -0.089532,-0.95628,-0.2784,0.73926,  0,0,0,1"/>
+    </transform> -->
+  </camera>
+  <instance>
+    <!-- <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="0.0095145,0.084315,0.40393"/>
+    </bsdf> -->
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.0097212,0.084376,0.40198"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <!-- <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="1.0,1.0,1.0"/>
+    </bsdf> -->
+    <!-- <bsdf name="lowBsdf" type="diffuse">
+      <texture name="albedo" type="constant" value="0.0,1.0,0.0"/>
+    </bsdf> -->
+    <!-- <bsdf type="iridescentmicrofacet" dinc="1.1" eta2="1.344" eta3="3" kappa3="0">
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0.11296"/>
+    </bsdf> -->
+    <shape id="feathersobj" type="feathers" filename="meshes/SphereSingleHair_hair.ply" lod="true" thresholdLOD="0.01"
+    numOriginalFeathers="1" planeFindingMode="standard" directionDerivativePos="0" barbAngle="0.5"
+    weightB="0.00025"/>
+     <!-- isTailFeather="false" asymmetry="-1" -->
+    <transform>
+      <matrix value="1,0,0,0,  0,1,0,0,  0,0,1,0.29865,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.6514,0.20508,0.7991"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/_m_1_SphereSingleHair.ply"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,1,0,0,  0,0,1,0.29865,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="0.17789,0.61721,0.7991"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/Plane.ply"/>
+    <transform>
+      <matrix value="3.5,0,0,1.2452,  0,10,0,0.14827,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <light type="envmap">
+    <texture type="image" filename="textures/kloofendal_48d_partly_cloudy_puresky_4k.exr.exr" border="clamp"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,0,1,0,  0,-1,0,0,  0,0,0,1"/>
+    </transform>
+  </light>
+</scene>
+<integrator type="pathtracer" depth="13">
+  <ref id="scene"/>
+  <image id="single"/>
+  <sampler type="independent" count="1024"/>
+</integrator>
+<!-- <integrator type="pathtracer" depth="13">
+  <ref id="scene"/>
+  <image id="single_feather_iridescent_highspp"/>
+  <sampler type="independent" count="1024"/>
+</integrator> -->
+<!-- <integrator type="aov" value="albedo">
+  <ref id="scene"/>
+  <image id="single_feather_iridescent_highspp_albedo"/>
+  <sampler type="independent" count="1024"/>
+</integrator>
+<integrator type="aov" value="normals">
+  <ref id="scene"/>
+  <image id="single_feather_iridescent_highspp_normal"/>
+  <sampler type="independent" count="1024"/>
+</integrator>
+<postprocess type="denoising">
+  <ref name="input" id="single_feather_iridescent_highspp"/>
+  <ref name="albedo" id="single_feather_iridescent_highspp_albedo"/>
+  <ref name="normals" id="single_feather_iridescent_highspp_normal"/>
+  <image id="denoised"/>
+</postprocess> -->
+
+
+<!-- denoising = XMLNode("postprocess", type="denoising")
+        denoising.add("ref", name="input", id="noisy")
+        denoising.add("ref", name="albedo", id="albedo")
+        denoising.add("ref", name="normals", id="normals")
+        denoising.add("image", id="denoised") -->

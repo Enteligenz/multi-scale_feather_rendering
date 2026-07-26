@@ -1,0 +1,100 @@
+<scene id="scene">
+  <camera type="perspective">
+    <integer name="width" value="1920"/>
+    <integer name="height" value="1080"/>
+    <float name="fov" value="39.598"/>
+    <string name="fovAxis" value="x"/>
+    <transform>
+      <matrix value="-0.96452,0.061366,-0.25678,1.1947,  0.26401,0.22419,-0.9381,3.1868,  3.4438e-08,-0.97261,-0.23244,1.4549,  0,0,0,1"/>
+    </transform>
+  </camera>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.06301,0.061246,0.056129"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0.5"/>
+    </bsdf>
+    <shape id="feathersobj" type="feathers" filename="meshes/pinguin_001_hair.ply" lod="false" thresholdLOD="10" numOriginalFeathers="2" planeFindingMode="pca" directionDerivativePos="0"
+    rootRadiusSpine="0.001" barbLengthRatio="0.5"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,7.5498e-08,-1,0,  0,1,7.5498e-08,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.49102,0.46208,0.37626"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0.5"/>
+    </bsdf>
+    <shape id="feathersobj.000" type="feathers" filename="meshes/pinguin_001.000_hair.ply" lod="false" thresholdLOD="10" numOriginalFeathers="2" planeFindingMode="pca" directionDerivativePos="0"
+    rootRadiusSpine="0.001" barbLengthRatio="0.5"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,7.5498e-08,-1,0,  0,1,7.5498e-08,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="image" filename="textures/Texture_1.png"/>
+      <texture name="roughness" type="constant" value="0.55279"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0.5"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/_m_2_pinguin_001.001.ply"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,7.5498e-08,-1,0,  0,1,7.5498e-08,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="0.8"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/Floor.ply"/>
+    <transform>
+      <matrix value="3.0644,0,0,0,  0,3.0644,0,0,  0,0,3.0644,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="0.8"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/Wall.ply"/>
+    <transform>
+      <matrix value="4.3185,0,0,0,  0,-1.8877e-07,-4.3185,-1.6418,  0,4.3185,-1.8877e-07,1,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="conductor">
+        <texture name="reflectance" type="constant" value="0.8"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/_m_0_Cube.ply"/>
+    <transform>
+      <matrix value="0.8747,0,0,0.22127,  0,0.038102,-0.035714,-1.557,  0,0.0013617,0.99936,1,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="image" filename="textures/wood_table_worn_diff_4k.jpg"/>
+      <texture name="roughness" type="image" filename="textures/wood_table_worn_rough_8k.png.001.exr" linear="true"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0.5"/>
+    </bsdf>
+    <texture name="normal" type="image" filename="textures/wood_table_worn_nor_gl_8k.png.001.exr" linear="true"/>
+    <shape type="mesh" filename="meshes/_m_1_Cube.ply"/>
+    <transform>
+      <matrix value="0.8747,0,0,0.22127,  0,0.038102,-0.035714,-1.557,  0,0.0013617,0.99936,1,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <light type="envmap">
+    <texture type="image" filename="textures/citrus_orchard_road_puresky_4k.exr.exr.exr" border="clamp" linear="true"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,0,1,0,  0,-1,0,0,  0,0,0,1"/>
+    </transform>
+  </light>
+</scene>
+<integrator type="pathtracer" depth="13">
+  <ref id="scene"/>
+  <image id="penguin_noisy"/>
+  <sampler type="independent" count="16"/>
+</integrator>

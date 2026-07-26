@@ -1,0 +1,55 @@
+<scene id="scene">
+  <camera type="perspective">
+    <integer name="width" value="1000"/>
+    <integer name="height" value="1000"/>
+    <float name="fov" value="39.598"/>
+    <string name="fovAxis" value="y"/>
+    <transform>
+      <matrix value="0.68592,0.32401,-0.65156,3.6566,  0.72768,-0.30542,0.61417,-3.411,  -4.0113e-09,-0.8954,-0.44527,2.4928,  0,0,0,1"/>
+    </transform>
+  </camera>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.39457,0.089599,0.028555"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape id="curveobj" type="curve" filename="meshes/Sphere_hair.ply" rootradius="0.01" tipradius="0.0001"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,1,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="0.8,0.8,0.8"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/_m_1_Sphere.ply"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,1,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.29937,0.63388,0.80003"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/Plane.ply"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,1,0,0,  0,0,1,-2.1753,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <light type="envmap">
+    <texture type="image" filename="textures/citrus_orchard_road_puresky_4k.exr.exr" border="clamp"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,0,1,0,  0,-1,0,0,  0,0,0,1"/>
+    </transform>
+  </light>
+</scene>
+<integrator type="pathtracer" depth="13">
+  <ref id="scene"/>
+  <image id="hair_ball"/>
+  <sampler type="independent" count="16"/>
+</integrator>

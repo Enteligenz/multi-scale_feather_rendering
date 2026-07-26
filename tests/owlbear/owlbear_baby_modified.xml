@@ -1,0 +1,177 @@
+<scene id="scene">
+  <camera type="perspective">
+    <integer name="width" value="1920"/>
+    <integer name="height" value="1080"/>
+    <float name="fov" value="39.598"/>
+    <string name="fovAxis" value="x"/>
+    <transform>
+      <matrix value="0.96593,0.11524,-0.23175,16.359,  0.25882,-0.4301,0.86489,-59.926,  -1.6638e-08,-0.8954,-0.44527,38.958,  0,0,0,1"/>
+    </transform>
+  </camera>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.11193,0.057805,0.042311"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <!-- <bsdf type="iridescentmicrofacet" dinc="2.15" eta2="1.344" eta3="3" kappa3="0">
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0.11296"/>
+    </bsdf> -->
+    <shape id="feathersobj" type="feathers" filename="meshes/owlbear_cub_vertex_hair.ply" lod="false" thresholdLOD="5" numOriginalFeathers="2" planeFindingMode="pca" directionDerivativePos="0"/>
+    <transform>
+      <matrix value="-4.3711e-08,-1,0,0,  1,-4.3711e-08,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.41254,0.28744,0.1912"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <!-- <bsdf type="iridescentmicrofacet" dinc="1.1" eta2="1.344" eta3="3" kappa3="0">
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0.11296"/>
+    </bsdf> -->
+    <shape id="feathersobj.000" type="feathers" filename="meshes/owlbear_cub_vertex.000_hair.ply" lod="false" thresholdLOD="5" numOriginalFeathers="2" planeFindingMode="pca" barbAngle="0.6" barbLengthRatio="0.3" directionDerivativePos="0"/>
+    <transform>
+      <matrix value="-4.3711e-08,-1,0,0,  1,-4.3711e-08,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.41254,0.28744,0.1912"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/_m_2_Owlbear_Cub_01_32mm.012.ply"/>
+    <transform>
+      <matrix value="-4.3711e-08,-1,0,0,  1,-4.3711e-08,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.41254,0.28744,0.1912"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/_m_3_Owlbear_Cub_01_32mm.012.ply"/>
+    <transform>
+      <matrix value="-4.3711e-08,-1,0,0,  1,-4.3711e-08,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.015996,0.015996,0.015996"/>
+      <texture name="roughness" type="constant" value="0.3"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/_m_4_Owlbear_Cub_01_32mm.012.ply"/>
+    <transform>
+      <matrix value="-4.3711e-08,-1,0,0,  1,-4.3711e-08,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.11193,0.057805,0.042311"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/_m_5_Owlbear_Cub_01_32mm.012.ply"/>
+    <transform>
+      <matrix value="-4.3711e-08,-1,0,0,  1,-4.3711e-08,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="0.8"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/Floor.ply"/>
+    <transform>
+      <matrix value="45,0,0,-8,  0,20,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="0.8"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/Wall.ply"/>
+    <transform>
+      <matrix value="45,0,0,-8,  0,-1.3113e-06,-1,14,  0,30,-4.3711e-08,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf id="Sclera_01_002" type="principled">
+      <texture name="baseColor" type="image" filename="textures/Sclera_01_Diffuse.jpg"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape id="Sphere_003" type="mesh" filename="meshes/Sphere.003.ply"/>
+    <transform>
+      <matrix value="1.6702,-0.0065466,0.45208,2.6808,  0.3795,0.96074,-1.3881,-8.6101,  -0.24577,1.439,0.9288,18.251,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf id="Lens_01_002" type="dielectric">
+      <texture name="ior" type="constant" value="1.41"/>
+      <texture name="transmittance" type="constant" value="1,1,1"/>
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0"/>
+    </bsdf>
+    <shape id="Sphere_002" type="mesh" filename="meshes/Sphere.002.ply"/>
+    <transform>
+      <matrix value="1.6985,-0.0066578,0.45976,2.6808,  0.38595,0.97707,-1.4117,-8.6101,  -0.24994,1.4635,0.94458,18.251,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf id="Demon_Iris_01_002" type="principled">
+      <texture name="baseColor" type="image" filename="textures/Demon_Eye_01_02-diffuse.jpg"/>
+      <texture name="roughness" id="Image Texture_002" type="image" filename="textures/Demon_Eye_01-disp.jpg"/>
+      <ref name="metallic" id="Image Texture_002"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape id="Plane_001" type="mesh" filename="meshes/Plane.001.ply"/>
+    <transform>
+      <matrix value="1.1889,-0.0046604,0.32183,3.0566,  0.27016,0.68393,-0.98815,-9.7643,  -0.17496,1.0244,0.66119,19.024,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <ref id="Sclera_01_002"/>
+    <ref id="Sphere_003"/>
+    <transform>
+      <matrix value="1.5697,0.024196,0.72745,6.0137,  0.62213,0.853,-1.3708,-7.5616,  -0.37779,1.5052,0.76516,17.402,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <ref id="Lens_01_002"/>
+    <ref id="Sphere_002"/>
+    <transform>
+      <matrix value="1.5964,0.024607,0.73981,6.0137,  0.6327,0.86749,-1.3941,-7.5616,  -0.38421,1.5308,0.77816,17.402,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <ref id="Demon_Iris_01_002"/>
+    <ref id="Plane_001"/>
+    <transform>
+      <matrix value="1.1175,0.017224,0.51785,6.6186,  0.44288,0.60723,-0.97587,-8.7014,  -0.26894,1.0715,0.5447,18.038,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <light type="envmap">
+    <texture type="image" filename="textures/kloofendal_48d_partly_cloudy_puresky_4k.exr.exr" border="clamp"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,0,1,0,  0,-1,0,0,  0,0,0,1"/>
+    </transform>
+  </light>
+</scene>
+<integrator type="pathtracer" depth="13">
+  <ref id="scene"/>
+  <image id="owlbear_bounce_5_64spp"/>
+  <sampler type="independent" count="64" seed="2"/>
+</integrator>

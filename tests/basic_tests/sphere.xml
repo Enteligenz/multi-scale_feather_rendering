@@ -1,0 +1,83 @@
+<scene id="scene">
+  <camera type="perspective">
+    <integer name="width" value="1920"/>
+    <integer name="height" value="1080"/>
+    <float name="fov" value="39.598"/>
+    <string name="fovAxis" value="x"/>
+    <transform>
+      <matrix value="0.68592,0.32401,-0.65156,3.298,  0.72768,-0.30542,0.61417,-3.2049,  -4.0113e-09,-0.8954,-0.44527,2.291,  0,0,0,1"/>
+    </transform>
+  </camera>
+  <instance>
+    <!-- <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="0.8"/>
+    </bsdf> -->
+    <!-- 1) green-grey with red edge ???-->
+    <!-- <bsdf type="iridescentmicrofacet" dinc="2.27" eta2="1.32" eta3="1.784" kappa3="0.705">
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0.11296"/>
+    </bsdf> -->
+    <!--  2) greenish blue -> blue -> purple -->
+    <!-- <bsdf type="iridescentmicrofacet" dinc="1.29" eta2="2.176" eta3="1.1" kappa3="0.98">
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0.1"/>
+    </bsdf> -->
+    <!--  3) red brown -> orange -> yellow -->
+    <!-- <bsdf type="iridescentmicrofacet" dinc="1.05" eta2="2.548" eta3="1" kappa3="0.95">
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0.1"/>
+    </bsdf> -->
+    <!--  4) yellow -> white-->
+    <!-- <bsdf type="iridescentmicrofacet" dinc="1.05" eta2="2.548" eta3="1" kappa3="3.065">
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0.1"/>
+    </bsdf> -->
+    <!--  5) pale yellow -> pale blue white-->
+    <!-- <bsdf type="iridescentmicrofacet" dinc="1.05" eta2="3.0" eta3="2.9" kappa3="3.6">
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0.1"/>
+    </bsdf> -->
+    <!-- Settings used on single feather render -->
+    <bsdf type="iridescentmicrofacet" dinc="1.1" eta2="1.344" eta3="3" kappa3="0">
+      <texture name="reflectance" type="constant" value="1,1,1"/>
+      <texture name="roughness" type="constant" value="0.11296"/>
+    </bsdf>
+    <shape type="sphere"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,1,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <light type="envmap">
+    <texture type="image" filename="textures/kloofendal_48d_partly_cloudy_puresky_4k.exr.exr" border="clamp"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,0,1,0,  0,-1,0,0,  0,0,0,1"/>
+    </transform>
+  </light>
+</scene>
+<integrator type="pathtracer" depth="10">
+  <ref id="scene"/>
+  <image id="sphere"/>
+  <sampler type="independent" count="8192"/>
+</integrator>
+
+<integrator type="pathtracer" depth="13">
+  <ref id="scene"/>
+  <image id="sphere_highspp"/>
+  <sampler type="independent" count="4096"/>
+</integrator>
+<integrator type="aov" variable="albedo">
+  <ref id="scene"/>
+  <image id="sphere_highspp_albedo"/>
+  <sampler type="independent" count="1024"/>
+</integrator>
+<integrator type="aov" variable="normals">
+  <ref id="scene"/>
+  <image id="sphere_highspp_normal"/>
+  <sampler type="independent" count="1024"/>
+</integrator>
+<postprocess type="denoising">
+  <ref name="input" id="sphere_highspp"/>
+  <ref name="albedo" id="sphere_highspp_albedo"/>
+  <ref name="normals" id="sphere_highspp_normal"/>
+  <image id="sphere_denoised"/>
+</postprocess>

@@ -1,0 +1,21 @@
+ply
+format binary_little_endian 1.0
+element num_beziers 1
+property float root_normal_x
+property float root_normal_y
+property float root_normal_z
+element num_segments 1
+property float w0x
+property float w0y
+property float w0z
+property float w1x
+property float w1y
+property float w1z
+property float w2x
+property float w2y
+property float w2z
+property float w3x
+property float w3y
+property float w3z
+end_header
+ïÎs?Æê“¾žÇÇ=™™i?±b¹¾×=0>ß ›?É„ë¾,F1>äÈ?yk¿„ì*>>å?Ç32¿Ðšs½

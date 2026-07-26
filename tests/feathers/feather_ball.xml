@@ -1,0 +1,56 @@
+<scene id="scene">
+  <camera type="perspective">
+    <integer name="width" value="1000"/>
+    <integer name="height" value="1000"/>
+    <float name="fov" value="39.598"/>
+    <string name="fovAxis" value="y"/>
+    <transform>
+      <matrix value="0.68592,0.32401,-0.65156,3.8074,  0.72768,-0.30542,0.61417,-3.6099,  -4.0113e-09,-0.8954,-0.44527,2.611,  0,0,0,1"/>
+    </transform>
+  </camera>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.39676,0.088656,0.028426"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape id="feathersobj" type="feathers" filename="meshes/Sphere_hair.ply" lod="false" thresholdLOD="0.5" numOriginalFeathers="2"
+    planeFindingMode="pca" directionDerivativePos="0"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,1,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="diffuse">
+      <texture name="albedo" type="constant" value="0.7991,0.7991,0.7991"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/_m_1_Sphere.ply"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,1,0,0,  0,0,1,0,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <instance>
+    <bsdf type="principled">
+      <texture name="baseColor" type="constant" value="0.30054,0.63076,0.7991"/>
+      <texture name="roughness" type="constant" value="0.5"/>
+      <texture name="metallic" type="constant" value="0"/>
+      <texture name="specular" type="constant" value="0"/>
+    </bsdf>
+    <shape type="mesh" filename="meshes/Plane_Feather_Ball.ply"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,1,0,0,  0,0,1,-2.0758,  0,0,0,1"/>
+    </transform>
+  </instance>
+  <light type="envmap">
+    <texture type="image" filename="textures/kloofendal_48d_partly_cloudy_puresky_4k.exr.exr" border="clamp"/>
+    <transform>
+      <matrix value="1,0,0,0,  0,0,1,0,  0,-1,0,0,  0,0,0,1"/>
+    </transform>
+  </light>
+</scene>
+<integrator type="pathtracer" depth="13">
+  <ref id="scene"/>
+  <image id="feather_ball_instanced"/>
+  <sampler type="independent" count="1024"/>
+</integrator>
